@@ -65,8 +65,6 @@ model Todo {
     id        String   @id @default(cuid())
     user      User     @relation(fields: [userId], references: [id])
     userId    String
-    createdAt DateTime
-    updatedAt DateTime @updatedAt
-    isChecked Boolean
+    isChecked Boolean?
     title     String
 }
