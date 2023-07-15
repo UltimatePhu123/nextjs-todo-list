@@ -1,7 +1,7 @@
 import Head from "next/head";
-import { api } from "~/utils/api";
 import Header from "./components/Header";
 import TodoMain from "./components/TodoMain";
+
 
 export default function Home() {
 

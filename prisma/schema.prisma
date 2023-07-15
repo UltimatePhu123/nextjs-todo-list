@@ -3,7 +3,6 @@
 
 generator client {
     provider        = "prisma-client-js"
-    previewFeatures = ["jsonProtocol"]
 }
 
 datasource db {
@@ -65,6 +64,6 @@ model Todo {
     id        String   @id @default(cuid())
     user      User     @relation(fields: [userId], references: [id])
     userId    String
-    isChecked Boolean?
+    isChecked Boolean
     title     String
 }

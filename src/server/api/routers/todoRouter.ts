@@ -14,7 +14,7 @@ export const todoRouter = createTRPCRouter({
     .input(
       z.object({
         title: z.string(),
-        isChecked: z.boolean() || z.null() || z.undefined(),
+        isChecked: z.boolean(),
       })
     )
     .mutation(({ ctx, input }) => {
@@ -33,6 +33,19 @@ export const todoRouter = createTRPCRouter({
       return ctx.prisma.todo.delete({
         where: {
           id: input.id,
+        },
+      });
+    }),
+
+  isCheckedBox: protectedProcedure
+    .input(z.object({ id: z.string(), isCheck: z.boolean() }))
+    .mutation(({ ctx, input }) => {
+      return ctx.prisma.todo.update({
+        where: {
+          id: input.id,
+        },
+        data: {
+          isChecked: input.isCheck,
         },
       });
     }),
