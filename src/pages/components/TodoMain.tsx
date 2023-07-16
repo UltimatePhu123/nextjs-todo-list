@@ -53,9 +53,10 @@ const TodoMain = () => {
           placeholder="New Todo"
           className="input-bordered input input-sm"
           required
+          value={todoTitle}
           onChange={(e) => setTodoTitle(e.currentTarget.value)}
         />
-        <label className="flex gap-x-2 font-semibold" tabIndex={1}>
+        <label className="flex items-center gap-x-2 font-semibold" tabIndex={1}>
           <input
             type="checkbox"
             className="checkbox-primary checkbox"
@@ -69,7 +70,7 @@ const TodoMain = () => {
       <div>
         <ul>
           {todos?.map((todo) => (
-            <li key={todo.id} className="flex gap-x-2">
+            <li key={todo.id} className="flex items-center gap-x-2">
               <input
                 type="checkbox"
                 className="checkbox-secondary checkbox checkbox-sm"
